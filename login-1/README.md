@@ -36,7 +36,7 @@ npm run start // 或 node app.js
 
 在浏览器中打开 [http://localhost:3000](http://localhost:3000)
 
-[(./login.png?raw=true)]
+![](./login.png?raw=true)
 
 ## package依赖
 
