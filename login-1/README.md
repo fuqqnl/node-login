@@ -33,6 +33,11 @@
 npm run start // 或 node app.js
 
 ```
+
+在浏览器中打开 [http://localhost:3000](http://localhost:3000)
+
+[(./login.png?raw=true)]
+
 ## package依赖
 
 > consolidate 和 swig 是为了让模板引擎支持html的解析
