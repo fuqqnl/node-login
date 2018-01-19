@@ -1,0 +1,22 @@
+{
+  "name": "login-2",
+  "version": "1.0.0",
+  "description": "README.md",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "body-parser": "1.14.1",
+    "connect-mongo": "0.8.2",
+    "cookie-parser": "1.4.0",
+    "errorhandler": "1.4.2",
+    "express": "4.13.3",
+    "express-session": "1.11.3",
+    "jade": "1.11.0",
+    "moment": "^2.20.1",
+    "mongodb": "2.0.45"
+  },
+  "author": "fuqiang",
+  "license": "MIT"
+}
