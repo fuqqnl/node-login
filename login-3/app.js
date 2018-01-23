@@ -28,7 +28,10 @@ app.use(session({
     name: 'connect.sid', // 存在cookie中的名字
     rolling: false, // 每个请求都重新设置一个 cookie，默认为 false
     // cookie的maxAge，单位是ms；httpOnly设置为true可以防止客户端修改cookie，进行攻击
-    cookie: { path: '/', maxAge: 300*1000, httpOnly: true }, 
+    // 当设置了maxAge后，connect.sid这条cookie，只有在时间到了后才会会过期，在时间内，浏览器彻底关闭后再启动，connect.id的值也不会发生变化，
+    // 也就是说，可以找到对应的那条服务端session
+    // 如果不设置maxAge,浏览器彻底重启后，原来的connect.sid就会被清除。
+    cookie: { path: '/', /*maxAge: 300*1000,*/ httpOnly: true }, 
     resave: false, // 是否每次都重新保存会话,默认true
     saveUninitialized: false // 是否自动保存未初始化的会话，一般是false
 

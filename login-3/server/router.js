@@ -9,6 +9,8 @@ module.exports = function (app) {
             //进行自动登录
             dbHandle.autoLogin(req.cookies.user, req.cookies.passwd, function (data) {
                 if(data) {
+                    // 浏览器关闭后，再重新打开，原来的session id已经没有了，所以需要重新给session.loginUser赋值
+                    req.session.loginUser= data.user;
                     res.redirect('/home');
                 } else {
                     res.render('login');
@@ -42,8 +44,8 @@ module.exports = function (app) {
             * 这里的user和passwd是明文的，在正式项目中应该进行加密，比如md5
             */
             if (parseReq.isRemind === 'true') {
-                res.cookie('user', parseReq.user, {maxAge: 24*60*60*1000});
-                res.cookie('passwd', parseReq.passwd, {maxAge: 24*60*60*1000});
+                res.cookie('user', parseReq.user, {maxAge: 60*60*1000});
+                res.cookie('passwd', parseReq.passwd, {maxAge: 60*60*1000});
             }
         })
     });
