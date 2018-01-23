@@ -1,0 +1,40 @@
+extends layout
+
+block content
+    #signup-container
+        form#signup.form-horizontal
+            h2 注册一下，享受便利，balabala...
+            hr
+            .form-group
+                label.col-sm-2.control-label 用户名:
+                .col-sm-10
+                    input.form-control(type='text', name='username')
+            .form-group
+                label.col-sm-2.control-label 密码:
+                .col-sm-10
+                    input.form-control(type='password', name='passwd')
+            .form-group
+                label.col-sm-2.control-label 爱好:
+                .col-sm-10
+                    input.form-control(type='text', name='favorite')
+            .form-group
+                label.col-sm-2.control-label 邮箱:
+                .col-sm-10
+                    input.form-control(typ='text', name='email')
+            .form-group
+                label.col-sm-2.control-label 性别:
+                .col-sm-10.marTop
+                    label 男
+                    input(type='radio', name='gender', value='0')
+                    label 女
+                    input(type='radio', name='gender', value='1')
+            .controls
+                .col-sm-2
+                .col-sm-10
+                    button(type='button').btn.btn-primary.button-sign-up 注册
+
+block scripts
+    script(src='/vendor/jquery-2.2.3.min.js')
+    script(src='/vendor/jquery.form.min.js')
+    script(src='/js/ajaxSubmit.js')
+

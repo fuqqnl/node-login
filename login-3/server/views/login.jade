@@ -1,0 +1,22 @@
+extends layout
+
+block content
+    #login-container
+        form(id='login')
+            h2 欢迎登录
+            hr
+            .form-group
+                label 用户名
+                input.form-control.username(type='text' name='username')
+            .form-group
+                label 密码
+                input.form-control.passwd(type='password' name='passwd')
+            .controls
+                input#remenber(type='checkbox' name="remenber")
+                label(for='remenber') 记住我
+                button(type='button').btn.btn-primary.button-sign-in 登录
+                a#signup-count(href='/signup') 注册
+block scripts
+    script(src='/vendor/jquery-2.2.3.min.js')
+    script(src='/vendor/jquery.form.min.js')
+    script(src='/js/ajaxSubmit.js')
