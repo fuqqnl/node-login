@@ -42,10 +42,11 @@ module.exports = function (app) {
             /*
             * 自动登录
             * 这里的user和passwd是明文的，在正式项目中应该进行加密，比如md5
+            * cookie的有效期这里设置为30秒
             */
             if (parseReq.isRemind === 'true') {
-                res.cookie('user', parseReq.user, {maxAge: 60*60*1000});
-                res.cookie('passwd', parseReq.passwd, {maxAge: 60*60*1000});
+                res.cookie('user', parseReq.user, {maxAge: 30*1000});
+                res.cookie('passwd', parseReq.passwd, {maxAge: 30*1000});
             }
         })
     });

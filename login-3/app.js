@@ -31,23 +31,11 @@ app.use(session({
     // 当设置了maxAge后，connect.sid这条cookie，只有在时间到了后才会会过期，在时间内，浏览器彻底关闭后再启动，connect.id的值也不会发生变化，
     // 也就是说，可以找到对应的那条服务端session
     // 如果不设置maxAge,浏览器彻底重启后，原来的connect.sid就会被清除。
-    cookie: { path: '/', /*maxAge: 300*1000,*/ httpOnly: true }, 
+    cookie: { path: '/', maxAge: 60*1000, httpOnly: true }, 
     resave: false, // 是否每次都重新保存会话,默认true
     saveUninitialized: false // 是否自动保存未初始化的会话，一般是false
 
 }));
-/**
-* 设置mongodb连接
-* 这里只演示连接我们本地的mongodb
-* @param {string} dbHost 连接数据库的域名
-* @param {number} dbPort 连接数据库的端口
-* @param {string} dbName 要链接哪个数据库
-*/
-var dbHost = process.env.dbHost || 'localhost';
-var dbPort = process.env.dbPort || 27017;
-var dbName = process.env.dbName || 'login-test';
-
-dbConnect = 'mongodb://' + dbHost + ':' + dbPort + '/' + dbName;
 
 // require 路由
 require('./server/router')(app);
